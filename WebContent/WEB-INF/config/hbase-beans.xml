@@ -10,13 +10,13 @@
 		http://www.springframework.org/schema/hadoop http://www.springframework.org/schema/hadoop/spring-hadoop.xsd
 		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-3.0.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
-
+	<!-- 设置hadoop端口 -->
 	<hadoop:configuration id="hadoopConfiguration">fs.default.name=hdfs://localhost:9000</hadoop:configuration>
-
+	<!-- 配置zookeeper -->
 	<hadoop:hbase-configuration
 		configuration-ref="hadoopConfiguration" zk-port="2181" zk-quorum="localhost.localdomain"></hadoop:hbase-configuration>
+	<!-- 注入HbaseTemplate模板类 -->
 	<bean id="htemplate" class="org.springframework.data.hadoop.hbase.HbaseTemplate">
 		<property name="configuration" ref="hbaseConfiguration" />
 	</bean>
-
 </beans>

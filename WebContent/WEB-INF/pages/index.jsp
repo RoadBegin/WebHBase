@@ -180,8 +180,15 @@
                         </tr>                    
 					<c:forEach items="${tables}" var="table">
                         <tr>
-                            <td><input type="checkbox" />&nbsp;&nbsp;${table.getTableName()}</td>
-                            <td><input type="checkbox"  checked/></td>
+                            <td><input type="checkbox" />&nbsp;&nbsp;${table.getTableName()}</td>                          
+                            <c:choose>
+                            	<c:when test="${table.isEnable()==true}">
+                            		<td><input type="checkbox"  checked="checked"/></td>
+                            	</c:when>
+                            	<c:when test="${table.isEnable()==false}">
+                            		<td><input type="checkbox" /></td>
+                            	</c:when>                            	
+                            </c:choose>                    	
                         </tr>
 					</c:forEach>                          
                     </table>

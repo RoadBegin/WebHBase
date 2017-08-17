@@ -40,13 +40,18 @@ public class HbaseConnection {
         ArrayList<Table> tables = new ArrayList<Table>();
        
 		try {
-			tablename = admin.listTableNames();
+			/*获取每个表的表名*/
+			tablename = admin.listTableNames();				
 	        for(int i = 0;i <  tablename.length;i++) {
 	        	System.out.println(tablename[i]);
 	        	Table table = new Table();
+	        	/*获取每个表是否可操作*/
+	        	boolean enable = admin.isTableEnabled(tablename[i]);
 	        	table.setTableName(tablename[i].toString());
+	        	table.setEnable(enable);	        	
 	        	tables.add(table);
 	        }  
+	        
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
