@@ -5,7 +5,7 @@
 	id="WebApp_ID" version="3.0">
   
 	
-	<!-- 解决中文乱码问题 -->
+	
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
